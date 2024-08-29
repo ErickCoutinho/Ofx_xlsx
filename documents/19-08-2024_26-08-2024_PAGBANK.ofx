@@ -1,0 +1,203 @@
+OFXHEADER:100
+DATA:OFXSGML
+VERSION:100
+SECURITY:NONE
+ENCODING:UTF-8
+CHARSET:NONE
+COMPRESSION:NONE
+OLDFILEUID:NONE
+NEWFILEUID:NONE
+<OFX>
+  <SIGNONMSGSRSV1>
+    <SONRS>
+      <STATUS>
+        <CODE>0</CODE>
+        <SEVERITY>INFO</SEVERITY>
+      </STATUS>
+      <DTSERVER>20240826090518[-3:BRT]</DTSERVER>
+      <LANGUAGE>POR</LANGUAGE>
+      <FI>
+        <ORG>PagSeguro Internet S/A</ORG>
+        <FID>290</FID>
+      </FI>
+    </SONRS>
+  </SIGNONMSGSRSV1>
+  <BANKMSGSRSV1>
+    <STMTTRNRS>
+      <STATUS>
+        <CODE>0</CODE>
+        <SEVERITY>INFO</SEVERITY>
+      </STATUS>
+      <STMTRS>
+        <CURDEF>BRL</CURDEF>
+        <BANKACCTFROM>
+          <BANKID>290</BANKID>
+          <ACCTID>22222059-2</ACCTID>
+          <ACCTTYPE>CHECKING</ACCTTYPE>
+        </BANKACCTFROM>
+        <BANKTRANLIST>
+          <DTSTART>20240819000000[-3:BRT]</DTSTART>
+          <DTEND>20240826000000[-3:BRT]</DTEND>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240819172247[-3:BRT]</DTPOSTED>
+            <TRNAMT>0.16</TRNAMT>
+            <FITID>613470c3-fce4-0787-b6ee-1e688bcebb69</FITID>
+            <MEMO>Rendimento da conta - Rendimento líquido sobre dinheiro em conta</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240819155934[-3:BRT]</DTPOSTED>
+            <TRNAMT>310.00</TRNAMT>
+            <FITID>a8bbb820-d942-4f5f-b2e8-d47256853547</FITID>
+            <MEMO>Pix recebido - Andressa Luanna Lima De Souza</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>OUT</TRNTYPE>
+            <DTPOSTED>20240819155146[-3:BRT]</DTPOSTED>
+            <TRNAMT>-239.48</TRNAMT>
+            <FITID>b87441bf-cd9c-412e-b988-829b1d6c1561</FITID>
+            <MEMO>Cartão da Conta - Zoom.us 888-799-9666     +18887999666 Us</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240819110831[-3:BRT]</DTPOSTED>
+            <TRNAMT>260.00</TRNAMT>
+            <FITID>649ecbc6-286d-4159-bf2b-e18c015514f1</FITID>
+            <MEMO>Pix recebido - Natália De Castro Vieira</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240819110601[-3:BRT]</DTPOSTED>
+            <TRNAMT>436.00</TRNAMT>
+            <FITID>5bb610f9-19e3-4076-baf4-568ad735d53a</FITID>
+            <MEMO>Pix recebido - Juliana Nogueira Q C Galvao</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240819101504[-3:BRT]</DTPOSTED>
+            <TRNAMT>436.00</TRNAMT>
+            <FITID>c8e31e85-5015-4c5e-b67d-54e296eaabcf</FITID>
+            <MEMO>Pix recebido - Hilda Pinheiro Da Costa</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240819095137[-3:BRT]</DTPOSTED>
+            <TRNAMT>279.00</TRNAMT>
+            <FITID>d45cb183-6092-4feb-a347-862c12fbfe69</FITID>
+            <MEMO>Pix recebido - Patricia Medeiros Henkemaier</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240820205425[-3:BRT]</DTPOSTED>
+            <TRNAMT>351.00</TRNAMT>
+            <FITID>61f6c6dc-e58b-4d42-a29b-c16210373782</FITID>
+            <MEMO>Pix recebido - Giovanna Maria Takaoka Valpereiro</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>OUT</TRNTYPE>
+            <DTPOSTED>20240820181430[-3:BRT]</DTPOSTED>
+            <TRNAMT>-3680.04</TRNAMT>
+            <FITID>5f8d5ff5-589c-4ded-9350-375d2582fa07</FITID>
+            <MEMO>Pagamento de conta - Darf/darf-simples 0385</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>OUT</TRNTYPE>
+            <DTPOSTED>20240820181218[-3:BRT]</DTPOSTED>
+            <TRNAMT>-700.00</TRNAMT>
+            <FITID>04b33dd9-5f44-45e6-a2fa-da90940bb52c</FITID>
+            <MEMO>Pix enviado - Luana Mayara Pereira Da Silva</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>OUT</TRNTYPE>
+            <DTPOSTED>20240820181201[-3:BRT]</DTPOSTED>
+            <TRNAMT>-7921.22</TRNAMT>
+            <FITID>3adfeb74-5f1e-45b5-9597-3b201b521c51</FITID>
+            <MEMO>Pagamento de conta - Simples Nacional</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240820164231[-3:BRT]</DTPOSTED>
+            <TRNAMT>384.75</TRNAMT>
+            <FITID>cf133d90-8541-4358-ab31-972102cc9ef8</FITID>
+            <MEMO>Pix recebido - Debora Marianna Vila Nova Santos</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240820160101[-3:BRT]</DTPOSTED>
+            <TRNAMT>279.00</TRNAMT>
+            <FITID>8305188b-1769-42dc-a64f-5fcc7193eea7</FITID>
+            <MEMO>Pix recebido - Lisandra Correia Rêgo</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240821135602[-3:BRT]</DTPOSTED>
+            <TRNAMT>317.59</TRNAMT>
+            <FITID>82e1dbed-9708-472d-bbdb-6756f6cba729</FITID>
+            <MEMO>Pix recebido - Bruna Hansch Braga Teixeira Da Silva    </MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240821114725[-3:BRT]</DTPOSTED>
+            <TRNAMT>280.00</TRNAMT>
+            <FITID>d0271737-85db-4812-b2fc-a12961bc6baa</FITID>
+            <MEMO>Pix recebido - Tatiane Verissimo P Saraiva</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240821105003[-3:BRT]</DTPOSTED>
+            <TRNAMT>351.00</TRNAMT>
+            <FITID>cb943718-3ecf-4591-a1d4-39f58f74486a</FITID>
+            <MEMO>Pix recebido - Giulia De Lucena Ribeiro</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240821082900[-3:BRT]</DTPOSTED>
+            <TRNAMT>279.00</TRNAMT>
+            <FITID>4a296f97-b996-470a-b4de-7d2d8a2a4e4d</FITID>
+            <MEMO>Pix recebido - Ironeuma Silvestre Moreno               </MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240822211434[-3:BRT]</DTPOSTED>
+            <TRNAMT>384.75</TRNAMT>
+            <FITID>387e43be-026f-4da9-908f-abb88c032bed</FITID>
+            <MEMO>Pix recebido - Simone Villas Boas Saraiva Psicologia Ltda</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240822175825[-3:BRT]</DTPOSTED>
+            <TRNAMT>0.26</TRNAMT>
+            <FITID>915738a9-80c3-0907-b371-b406ec83d1e2</FITID>
+            <MEMO>Rendimento da conta - Rendimento líquido sobre dinheiro em conta</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240823163631[-3:BRT]</DTPOSTED>
+            <TRNAMT>2.39</TRNAMT>
+            <FITID>18eabee1-5fc2-0439-a4e1-c2d57a7b6687</FITID>
+            <MEMO>Rendimento da conta - Rendimento líquido sobre dinheiro em conta</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240824135413[-3:BRT]</DTPOSTED>
+            <TRNAMT>1.92</TRNAMT>
+            <FITID>91de4ab6-eafb-0ecb-8a56-c75dec017cf5</FITID>
+            <MEMO>Rendimento da conta - Rendimento líquido sobre dinheiro em conta</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>IN</TRNTYPE>
+            <DTPOSTED>20240825160553[-3:BRT]</DTPOSTED>
+            <TRNAMT>1.33</TRNAMT>
+            <FITID>9812f909-677e-0b3b-8ac6-5c29b1fc01ad</FITID>
+            <MEMO>Rendimento da conta - Rendimento líquido sobre dinheiro em conta</MEMO>
+          </STMTTRN>
+        </BANKTRANLIST>
+        <LEDGERBAL>
+          <BALAMT>R$ 55.103,65</BALAMT>
+          <DTASOF>25/08/2024</DTASOF>
+        </LEDGERBAL>
+      </STMTRS>
+    </STMTTRNRS>
+  </BANKMSGSRSV1>
+</OFX>
