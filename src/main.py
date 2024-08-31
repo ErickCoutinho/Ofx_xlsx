@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 from tkinter import filedialog
-from processador_ofx import processar_arquivo_ofx, remove_closing_tags
+from processador_ofx import processar_arquivo_ofx
 from extract_PagBank import extract_ofx_data
 import ofxparse
 import io
@@ -17,30 +17,48 @@ def processar_ofx():
         return
 
     try:
-        if banco_selecionado == "Bradesco":
-            # Leitura específica para o arquivo Bradesco
+        if banco_selecionado == "Bradesco" or banco_selecionado == "Inter":
+            # Leitura específica para Bradesco e Inter
             with open(caminho_arquivo, 'r', encoding='utf-8', errors="ignore") as file:
                 decoded_content = file.read()
-                modified_content = remove_closing_tags(decoded_content)
-                cleaned_file = io.StringIO(modified_content)
-                ofx = ofxparse.OfxParser.parse(cleaned_file)
+                ofx = ofxparse.OfxParser.parse(io.StringIO(decoded_content))
             processar_arquivo_ofx(ofx)
-        elif banco_selecionado == "Inter":
-            # Leitura específica para o arquivo Inter
-            with open(caminho_arquivo, 'r', encoding='utf-8') as file:
-                ofx = ofxparse.OfxParser.parse(file)
-            processar_arquivo_ofx(ofx)
+
         elif banco_selecionado == "PagBank":
-            # Leitura e processamento específico para o banco PagBank
+            # Processamento específico para PagBank
             transactions_df, agency, account_number, account_type, initial_balance, available_balance, start_date, end_date = extract_ofx_data(
                 caminho_arquivo)
 
+            # Criando um objeto similar ao esperado por processar_arquivo_ofx
+            class AccountStatement:
+                def __init__(self, transactions, start_date, end_date):
+                    self.start_date = start_date
+                    self.end_date = end_date
+                    self.transactions = transactions
 
-            # Aqui você pode exibir os dados ou salvá-los de outra forma.
-            # Neste exemplo, estou apenas exibindo uma mensagem de sucesso:
-            messagebox.showinfo("Sucesso",
-                                f"Arquivo OFX processado com sucesso para {banco_selecionado}.\nAgência: {agency}\nConta: {account_number}")
-            return
+            class Account:
+                def __init__(self, branch_id, account_id, account_type, statement):
+                    self.branch_id = branch_id
+                    self.account_id = account_id
+                    self.account_type = account_type
+                    self.statement = statement
+
+            # Convertendo transações para o formato esperado
+            transactions = []
+            for _, row in transactions_df.iterrows():
+                transaction = ofxparse.Transaction()
+                transaction.date = row['Data']
+                transaction.amount = row['Valor']
+                transaction.memo = row['Descrição']
+                transaction.id = row['ID da Transação']
+                transactions.append(transaction)
+
+            # Criando o objeto de conta e extrato
+            statement = AccountStatement(transactions, start_date, end_date)
+            ofx_data = Account(agency, account_number, account_type, statement)
+
+            # Chama o método para processar e gerar o Excel
+            processar_arquivo_ofx(ofx_data)
 
     except Exception as e:
         messagebox.showerror("Erro", f"Erro ao processar arquivo: {e}")
