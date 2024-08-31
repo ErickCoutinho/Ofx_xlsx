@@ -2,8 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 from tkinter import filedialog
-from processador_ofx import processar_arquivo_ofx
-from extract_PagBank import extract_ofx_data
+from processador_ofx import processar_arquivo_ofx, remove_closing_tags
+from extract_PagBank import extract_ofx_data, processar_pagbank_excel
 import ofxparse
 import io
 
@@ -17,48 +17,41 @@ def processar_ofx():
         return
 
     try:
-        if banco_selecionado == "Bradesco" or banco_selecionado == "Inter":
-            # Leitura específica para Bradesco e Inter
+        if banco_selecionado == "Bradesco":
+            # Leitura específica para o arquivo Bradesco
             with open(caminho_arquivo, 'r', encoding='utf-8', errors="ignore") as file:
                 decoded_content = file.read()
-                ofx = ofxparse.OfxParser.parse(io.StringIO(decoded_content))
+                modified_content = remove_closing_tags(decoded_content)
+                cleaned_file = io.StringIO(modified_content)
+                ofx = ofxparse.OfxParser.parse(cleaned_file)
             processar_arquivo_ofx(ofx)
-
+        elif banco_selecionado == "Inter":
+            # Leitura específica para o arquivo Inter
+            with open(caminho_arquivo, 'r', encoding='utf-8') as file:
+                ofx = ofxparse.OfxParser.parse(file)
+            processar_arquivo_ofx(ofx)
         elif banco_selecionado == "PagBank":
-            # Processamento específico para PagBank
+            # Leitura e processamento específico para o banco PagBank
             transactions_df, agency, account_number, account_type, initial_balance, available_balance, start_date, end_date = extract_ofx_data(
                 caminho_arquivo)
+            ofx_data = {
+                'account': {
+                    'branch_id': agency,
+                    'account_id': account_number,
+                    'account_type': account_type,
+                    'statement': {
+                        'start_date': start_date,
+                        'end_date': end_date,
+                        'transactions': transactions_df
+                    }
+                }
+            }
 
-            # Criando um objeto similar ao esperado por processar_arquivo_ofx
-            class AccountStatement:
-                def __init__(self, transactions, start_date, end_date):
-                    self.start_date = start_date
-                    self.end_date = end_date
-                    self.transactions = transactions
-
-            class Account:
-                def __init__(self, branch_id, account_id, account_type, statement):
-                    self.branch_id = branch_id
-                    self.account_id = account_id
-                    self.account_type = account_type
-                    self.statement = statement
-
-            # Convertendo transações para o formato esperado
-            transactions = []
-            for _, row in transactions_df.iterrows():
-                transaction = ofxparse.Transaction()
-                transaction.date = row['Data']
-                transaction.amount = row['Valor']
-                transaction.memo = row['Descrição']
-                transaction.id = row['ID da Transação']
-                transactions.append(transaction)
-
-            # Criando o objeto de conta e extrato
-            statement = AccountStatement(transactions, start_date, end_date)
-            ofx_data = Account(agency, account_number, account_type, statement)
-
-            # Chama o método para processar e gerar o Excel
-            processar_arquivo_ofx(ofx_data)
+            # Preparação dos dados no formato necessário para processar_arquivo_ofx
+            processar_pagbank_excel(ofx_data)
+            messagebox.showinfo("Sucesso",
+                                f"Arquivo OFX processado com sucesso para {banco_selecionado}.\nAgência: {agency}\nConta: {account_number}")
+            return
 
     except Exception as e:
         messagebox.showerror("Erro", f"Erro ao processar arquivo: {e}")
